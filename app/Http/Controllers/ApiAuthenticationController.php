@@ -288,10 +288,10 @@ class ApiAuthenticationController extends Controller
                             'description' => 'Login warga'
                         ]);
         
-                        $user->update([
-                            'fcm_token' => request('fcm_token')
-                        ]);
-                        // $this->setFcmToken($user->id);
+                        // $user->update([
+                        //     'fcm_token' => request('fcm_token')
+                        // ]);
+                        
                         $token = auth('api')->fromUser($user);
         
                         $status = 'success';
@@ -318,25 +318,11 @@ class ApiAuthenticationController extends Controller
             ]);
         }
         auth('api')->logout();
-        $this->destroyFcmToken($user->id);
 
         $status = 'success';
         $status_code = 200;
         $message = 'Berhasil logout';
         return response()->json(compact('status', 'status_code', 'message'), 200);
     }
-
-
-    public function destroyFcmToken($user_id)
-    {
-        $user = User::findOrFail($user_id);
-        $user->update([
-            'fcm_token' => null
-        ]);
-
-        $status = 'success';
-        $status_code = 200;
-        $message = 'Token berhasil dihapus';
-        return response()->json(compact('status', 'status_code', 'message', 'fcm_token'), 200);
-    }
+    
 }

@@ -4,36 +4,37 @@
 
 @section('style')
 <style>
-  .page-item.active .page-link {
-    color: #FFF !important;
-    background-color: ##1E9FF2 !important;
-    border-color: ##1E9FF2 !important;
-  }
-  .pagination .page-lin {
-    color: blue !important;
-  }
+    .page-item.active .page-link {
+        color: #FFF !important;
+        background-color: ##1E9FF2 !important;
+        border-color: ##1E9FF2 !important;
+    }
+
+    .pagination .page-lin {
+        color: blue !important;
+    }
 </style>
 @endsection
 
 @section('content-header')
-    <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
-        <h3 class="content-header-title mb-0 d-inline-block">Manajemen Data User</h3>
-        <div class="row breadcrumbs-top d-inline-block">
-            <div class="breadcrumb-wrapper col-12">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/home">Home</a>
-                    </li>
-                    <li class="breadcrumb-item active">User Warga
-                    </li>
-                </ol>
-            </div>
+<div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+    <h3 class="content-header-title mb-0 d-inline-block">Manajemen Data User</h3>
+    <div class="row breadcrumbs-top d-inline-block">
+        <div class="breadcrumb-wrapper col-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/home">Home</a>
+                </li>
+                <li class="breadcrumb-item active">User Warga
+                </li>
+            </ol>
         </div>
     </div>
-    <div class="content-header-right col-md-6 col-12">
-        <div class="btn-group float-md-right">
-            <button class="btn btn-info rounded-0 mb-1" id="createUserButton" type="button">Tambah</button>
-        </div>
+</div>
+<div class="content-header-right col-md-6 col-12">
+    <div class="btn-group float-md-right">
+        <button class="btn btn-info rounded-0 mb-1" id="createUserButton" type="button">Tambah</button>
     </div>
+</div>
 @endsection
 
 @section('content')
@@ -63,54 +64,55 @@
                                 <th>Verifikasi nomor</th>
                                 <th>Status akun</th>
                                 <th>Status pengurus</th>
-                                <th width="10%">Aksi</th>                                
+                                <th width="10%">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $no = 1; @endphp
                             @foreach($users as $item)
-                                <tr>
-                                    <td class="text-capitalize">{{ $no++ }}</td>
-                                    <td class="text-capitalize">{{ $item->family_member->family_member_name }}</td>
-                                    <td>{{ $item->phone_number }}</td>
-                                    <td class="text-center">
+                            <tr>
+                                <td class="text-capitalize">{{ $no++ }}</td>
+                                <td class="text-capitalize">{{ $item->family_member->family_member_name }}</td>
+                                <td>{{ $item->phone_number }}</td>
+                                <td class="text-center">
                                     @if($item->family_member->verified == 1)
-                                        <h4><span class="badge badge-success">terverifikasi</span></h4>
+                                    <h4><span class="badge badge-success">terverifikasi</span></h4>
                                     @else
-                                        <h4><span class="badge badge-danger">belum verifikasi</span></h4>
+                                    <h4><span class="badge badge-danger">belum verifikasi</span></h4>
                                     @endif
-                                    </td>
-                                    <td class="text-center">
+                                </td>
+                                <td class="text-center">
                                     @if($item->family_member->status == 'aktif')
-                                        <h4><span class="badge badge-success">Aktif</span></h4>
+                                    <h4><span class="badge badge-success">Aktif</span></h4>
                                     @else
-                                        <h4><span class="badge badge-danger">Tidak aktif</span></h4>
+                                    <h4><span class="badge badge-danger">Tidak aktif</span></h4>
                                     @endif
-                                    <td class="text-center">
+                                <td class="text-center">
                                     @if($item->roles == true)
-                                        <h4><span class="badge badge-success">Aktif</span></h4>
+                                    <h4><span class="badge badge-success">Aktif</span></h4>
                                     @else
-                                        <h4><span class="badge badge-danger">Tidak aktif</span></h4>
+                                    <h4><span class="badge badge-danger">Tidak aktif</span></h4>
                                     @endif
-                                    </td>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">
-                                                <i class="la la-cog"></i>
+                                </td>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-info dropdown-toggle" type="button"
+                                            data-toggle="dropdown">
+                                            <i class="la la-cog"></i>
+                                        </button>
+                                        <div class="dropdown-menu" style="min-width: 9rem !important">
+                                            <button class="dropdown-item editButton" value="{{ $item->id }}">
+                                                <i class="la la-edit"></i> Ubah
                                             </button>
-                                            <div class="dropdown-menu" style="min-width: 9rem !important">
-                                                <button class="dropdown-item editButton" value="{{ $item->id }}">
-                                                    <i class="la la-edit"></i> Ubah
-                                                </button>
-                                                <button class="dropdown-item deleteUserButton" value="{{ $item->id }}">
-                                                    <i class="la la-trash"></i> Hapus
-                                                </button>
+                                            <button class="dropdown-item deleteUserButton" value="{{ $item->id }}">
+                                                <i class="la la-trash"></i> Hapus
+                                            </button>
 
-                                            </div>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                         <tfooter>
@@ -121,8 +123,8 @@
                                 <th>Verifikasi nomor</th>
                                 <th>Status akun</th>
                                 <th>Status pengurus</th>
-                                <th width="10%">Aksi</th>                                
-               
+                                <th width="10%">Aksi</th>
+
                             </tr>
                         </tfooter>
                     </table>
@@ -149,29 +151,32 @@
                         <select class="form-control select2" name="nik" style="width: 100% !important;" required>
                             <option value="" hidden>Pilih</option>
                             @foreach($family_members as $item)
-                                <option value="{{ $item->nik }}">{{ $item->nik }}</option>
+                            <option value="{{ $item->nik }}">{{ $item->nik }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Email Address</label>
-                        <input type="text" minlength="5" name="email" placeholder="Masukkan email address" class="form-control" required>
+                        <input type="text" minlength="5" name="email" placeholder="Masukkan email address"
+                            class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="">Nomor telepon</label>
-                        <input type="text" minlength="10" maxlength="13" name="phone_number" placeholder="Masukkan nomor telepon" class="form-control" required>
+                        <input type="text" minlength="10" maxlength="13" name="phone_number"
+                            placeholder="Masukkan nomor telepon" class="form-control" required>
                     </div>
                     <fieldset class="form-group floating-label-form-group mb-1 input-password">
                         <label for="user-password"><i class="fa laa-lock"></i> Password</label>
                         <div class="input-group">
-                          <input type="password" class="form-control" name="password" id="password" maxlength="210" minlength="1" placeholder="Enter Your Password" required>
-                          <div class="input-group-append">
-                            <span class="input-group-text">
-                              <i class="la la-eye-slash" id="togglePassword"></i>
-                            </span>
-                          </div>
+                            <input type="password" class="form-control" name="password" id="password" maxlength="210"
+                                minlength="1" placeholder="Enter Your Password" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="la la-eye-slash" id="togglePassword"></i>
+                                </span>
+                            </div>
                         </div>
-                      </fieldset>
+                    </fieldset>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Kembali</button>
@@ -196,27 +201,36 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="">Nomor telepon</label>
-                        <input type="number" minlength="10" maxlength="13" name="phone_number" placeholder="Masukkan nomor telepon" class="form-control" id="editPhoneNumber" required>
+                        <input type="number" minlength="10" maxlength="13" name="phone_number"
+                            placeholder="Masukkan nomor telepon" class="form-control" id="editPhoneNumber" required>
                     </div>
                     <fieldset class="form-group floating-label-form-group mb-1 input-password">
                         <label for="user-password"><i class="fa laa-lock"></i> Password</label>
                         <div class="input-group">
-                          <input type="password" class="form-control" name="password" id="editPassword" maxlength="210" minlength="1" placeholder="Enter Your Password" required>
-                          <div class="input-group-append">
-                            <span class="input-group-text">
-                              <i class="la la-eye-slash" id="togglePassword"></i>
-                            </span>
-                          </div>
+                            <input type="password" class="form-control" name="password" id="editPassword"
+                                maxlength="210" minlength="1" placeholder="Enter Your Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="la la-eye-slash" id="togglePassword"></i>
+                                </span>
+                            </div>
                         </div>
-                      </fieldset>
+                    </fieldset>
                     <div class="form-group">
                         <label for="">Status akun</label>
                         <select name="status" class="form-control" id="editStatusAkun" required>
-                            <option value="aktif">Aktif</option>
                             <option value="tidak aktif">Tidak aktif</option>
+                            <option value="aktif">Aktif</option>
                         </select>
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="">Verifikasi akun</label>
+                        <select name="verified" class="form-control" id="editVerified" required>
+                            <option value="0">Tidak</option>
+                            <option value="1">Iya</option>
+                        </select>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Kembali</button>
@@ -249,9 +263,8 @@
 @endsection
 
 @section('script')
-    <script>
-        
-        $(document).on("click", "#createUserButton", function ()
+<script>
+    $(document).on("click", "#createUserButton", function ()
         {
             $("#createUserModal").modal();
         });
@@ -268,7 +281,8 @@
                 
                 $("#editPhoneNumber").val(response.phone_number);
                 $("#editPassword").val(response.password);
-                $("#editStatusAkun option[value=\"" + response.status + "\"]").attr("selected", true);
+                $("#editVerified option[value=\"" + response.family_member.verified + "\"]").attr("selected", true);
+                $("#editStatusAkun option[value=\"" + response.family_member.status + "\"]").attr("selected", true);
 
                 $("#editUserForm").attr("action", "{{ route('users.index') }}/" + id)
                 $("#editModal").modal();
@@ -283,5 +297,5 @@
             $("#deleteUserForm").attr("action", "{{ route('users.index') }}/" + id)
             $("#deleteUserModal").modal();
         });
-    </script>
+</script>
 @endsection

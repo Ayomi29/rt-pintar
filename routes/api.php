@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'v1', 'middleware' => 'api'], function () {
+
     Route::post('check-family-card', [ApiAuthenticationController::class, 'CheckFamilyCard']);
     Route::post('login-warga', [ApiAuthenticationController::class, 'loginWarga'])->name('login');
     Route::post('register', [ApiAuthenticationController::class, 'register']);
@@ -34,8 +35,9 @@ Route::group(['prefix' => 'v1', 'middleware' => 'api'], function () {
     Route::post('confirm-otp', [ApiAuthenticationController::class, 'confirmVerificationCode']);
     Route::post('reconfirm-otp', [ApiAuthenticationController::class, 'resendCodeVerification']);
     Route::get('tes-notif', [ApiPanicButtonController::class, 'tesNotif']);
-
+    
     Route::middleware('jwt.auth')->group(function () {
+        Route::get('test', [ApiDonationController::class, 'Test']);
         Route::post('logout', [ApiAuthenticationController::class, 'logout']);
         // profile
         Route::get('profile', [ApiProfileController::class, 'getProfile']);

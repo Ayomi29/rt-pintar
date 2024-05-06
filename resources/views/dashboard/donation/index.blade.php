@@ -63,6 +63,7 @@
                                 <th>Deskripsi Iuran</th>
                                 <th>Nominal Iuran</th>
                                 <th>Foto Iuran</th>
+                                <th>Tanggal Posting</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </thead>
@@ -79,6 +80,7 @@
                                         <img src="{{ $item->image }}" width="75px" height="75px">
                                     </a>
                                 </td>
+                                <td class="text-capitalize">{{ $item->created_at->diffForHumans() }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-info dropdown-toggle" type="button"
@@ -89,6 +91,9 @@
                                             <button class="dropdown-item editButton" value="{{ $item->id }}">
                                                 <i class="la la-edit"></i> Ubah
                                             </button>
+                                            <a href="/iurans/{{ $item->id }}" class="dropdown-item">
+                                                <i class="la la-file-alt"></i> Rekapitulasi Iuran
+                                            </a>
                                             <button class="dropdown-item deleteButton" value="{{ $item->id }}">
                                                 <i class="la la-trash"></i> Hapus
                                             </button>
@@ -106,6 +111,7 @@
                                 <th>Deskripsi Iuran</th>
                                 <th>Nominal Iuran</th>
                                 <th>Foto Iuran</th>
+                                <th>Tanggal Posting</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </tfooter>

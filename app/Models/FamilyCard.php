@@ -24,4 +24,8 @@ class FamilyCard extends Model
     {
         return $this->hasMany(FamilyMember::class)->whereDoesntHave('user');
     }
+    public function donation_bill()
+    {
+        return $this->hasOne(DonationBill::class);
+    }
 }

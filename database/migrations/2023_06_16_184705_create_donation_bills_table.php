@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('donation_bills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('family_member_id');
+            $table->foreignId('family_card_id');
             $table->foreignId('donation_id');
             $table->string('nominal');
             $table->text('file');

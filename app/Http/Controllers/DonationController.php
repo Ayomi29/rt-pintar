@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityHistory;
 use App\Models\Donation;
+use App\Models\DonationBill;
+use App\Models\FamilyMember;
 use App\Models\PushNotification;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +24,18 @@ class DonationController extends Controller
         $donations["donations"] = Donation::orderBy('id', 'asc')->get();
         return view('dashboard.donation.index', $donations);
     }
-
+    public function show($id)
+    {
+        $donations = DonationBill::where('donation_id', $id)->get();
+        $sum = DonationBill::where('donation_id', $id)->pluck('nominal')->map(function ($value) {
+            return (int) preg_replace('/[^\d]/', '', $value);
+        })->sum();
+        $sum_donation = number_format($sum, 0);
+        return view('dashboard.donation.show', [
+            'donations' => $donations,
+            'sum_donation' => $sum_donation
+        ]);
+    }
     public function store(Request $request)
     {
         if ($request->hasFile('image')) {
@@ -64,6 +77,7 @@ class DonationController extends Controller
         return redirect()->back()->with('OK', 'Berhasil menambahkan data');
     }
 
+    
     public function edit($id)
     {
         $donation = Donation::findOrFail($id);

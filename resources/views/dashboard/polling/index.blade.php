@@ -71,6 +71,7 @@
                                 <th>Deskripsi</th>
                                 <th>Hasil Vote</th>
                                 <th>Status</th>
+                                <th>Tanggal Posting</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </thead>
@@ -83,11 +84,7 @@
                                 <td class="text-capitalize">{{ $item->description }}</td>
                                 <td class="text-capitalize">
                                     @foreach ($item->polling_option as $option)
-                                    @if ($item->status == 'finish')
                                     <p style="white-space: nowrap">{{ $option->option_name }} : {{ $option->vote }}</p>
-                                    @else
-                                    <p style="white-space: nowrap">{{ $option->option_name }} : Menunggu hasil</p>
-                                    @endif
                                     @endforeach
                                 </td>
                                 <td class="text-center">
@@ -99,6 +96,7 @@
                                     <h4><span class="badge badge-success">Selesai</span></h4>
                                     @endif
                                 </td>
+                                <td class="text-capitalize">{{ $item->created_at->diffForHumans() }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-info dropdown-toggle" type="button"
@@ -140,6 +138,7 @@
                                 <th>Deskripsi</th>
                                 <th>Hasil Vote</th>
                                 <th>Status</th>
+                                <th>Tanggal Posting</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </tfooter>

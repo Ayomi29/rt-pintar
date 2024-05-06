@@ -78,14 +78,19 @@ class UserController extends Controller
             'user_id' => Auth::user()->id,
             'description' => 'Ubah warga'
         ]);
-
-        $user->update([
-            'phone_number' => request('phone_number'),
-            'password' => bcrypt(request('password'))
-        ]);
-
+        if(request('password') == null) {
+            $user->update([
+                'phone_number' => request('phone_number')
+            ]);
+        } else {
+            $user->update([
+                'phone_number' => request('phone_number'),
+                'password' => bcrypt(request('password'))
+            ]);
+        }
         $user->family_member->update([
             'status' => request('status'),
+            'verified' =>request('verified')
         ]);
 
         return redirect()->back()->with("OK", "Berhasil mengubah data");

@@ -20,12 +20,21 @@ public function index()
 
 public function login(Request $request)
 {
-    $credentials = $request->validate([
-        'email' => ['required'],
-        'password' => ['required'],
-    ]);
+    $input = request('email');
+    $user = User::where('phone_number', $input)->orWhere('email', $input)->first();
+    
+    if (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+        $credentials = ['email' => $user->email, 'password' => request('password')];
+    } else {
+        $credentials = ['phone_number' => $user->phone_number, 'password' => request('password')];
+    }
+
+    // $credentials = $request->validate([
+    //     'email' => ['required'],
+    //     'password' => ['required'],
+    // ]);
     if (Auth::attempt($credentials)) {
-        if (Auth::user()->admin == true) {
+        if (Auth::user()->admin == true || Auth::user()->bendahara == true) {
             $request->session()->regenerate();
             return redirect()->intended('/home');
         } else {

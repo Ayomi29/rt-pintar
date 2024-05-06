@@ -10,9 +10,9 @@ class DonationBill extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function user()
+    public function family_member()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(FamilyMember::class);
     }
     public function donation()
     {

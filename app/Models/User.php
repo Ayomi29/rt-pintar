@@ -18,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function roles()
     {
-        return $this->belongsTo(Role::class);
+        return $this->hasOne(Role::class);
     }
     public function admin()
     {
@@ -27,6 +27,10 @@ class User extends Authenticatable implements JWTSubject
     public function pengurus()
     {
         return $this->hasOne(Role::class)->where('role_name', 'pengurus');
+    }
+    public function bendahara()
+    {
+        return $this->hasOne(Role::class)->where('role_name', 'bendagara');
     }
 
     public function otp_code()

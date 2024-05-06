@@ -22,4 +22,8 @@ class FamilyMember extends Model
     {
         return $this->hasMany(CoverLetter::class);
     }
+    public function donation_bill()
+    {
+        return $this->hasOne(DonationBill::class);
+    }
 }

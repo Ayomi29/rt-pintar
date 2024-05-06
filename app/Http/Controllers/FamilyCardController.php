@@ -16,7 +16,7 @@ class FamilyCardController extends Controller
     public function index()
     {
         $family_cards = FamilyCard::orderBy('id', 'asc')->get();
-        $houses = House::get();
+        $houses = House::whereDoesntHave('family_card')->get();;
         return view('dashboard.family-card.index', ['family_cards' => $family_cards, 'houses' => $houses]);
     }
 
