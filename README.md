@@ -16,9 +16,3 @@ RT Pintar merupakan sebuah aplikasi sistem informasi administrasi RT 15 Perumnas
 # Backend (API) RT Pintar
 Pembuatan API dengan laravel menggunakan JWT Auth sebagai sistem autentikasinya, API ini digunakan oleh aplikasi mobile RT Pintar. Dokumentasi API dari aplikasi ini dapat dilihat melalui link berikut [Click Here!](https://documenter.getpostman.com/view/24336143/2sA2rGvzab)
 
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
