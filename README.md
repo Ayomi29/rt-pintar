@@ -1,63 +1,21 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## RT Pintar
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+RT Pintar merupakan sebuah aplikasi sistem informasi administrasi RT 15 Perumnas Batu Ampar Balikpapan. Aplikasi RT Pintar berupa sebuah website dan aplikasi mobile. Website RT Pintar digunakan untuk mengelola data administrasi warga RT 15 yang dikelola oleh ketua RT dan admin. Sedangkan aplikasi mobile RT Pintar digunakan oleh warga untuk keperluan administrasi seperti pengajuan surat dan membaca pengumuman RT dan juga sebagai wadah aspirasi atau pendapat warga. Pada repository ini merupakan website dan backend API yang digunakan aplikasi mobile. Pengembangan website ini menggunakan framework Laravel dengan menggunakan metode SDLC Waterfall. Fitur utama yang tersedia pada website RT Pintar yakni sebagai berikut:
+- Manajemen data pengguna: Memasukkan data pengguna, mengubah data, dan menghapus data
+- Manajemen data rumah: Memasukkan data dan mengubah data rumah
+- Manajemen data Kartu Keluarga: Memasukkan data KK warga, mengubah data, dan menghapus data
+- Manajemen data anggota KK (data warga): Memasukkan data warga, mengubah data, dan menghapus data
+- Manajemen data aduan warga: Mengubah status aduan, melihat dokumentasi aduan, dan menghapus data aduan
+- Manajemen data surat: Membuatkan surat (Automate), mengubah status surat, dan menghapus data surat
+- Manajemen data pengumuman: Membuat pengumuman, mengubah data dan menghapus data pengumuman
+- Manajemen data iuran: Membuat iuran, mengubah data iuran, melihat rekapan pembayaran iuran dan menghapus data iuran
+- Manajemen data polling: Membuat polling, mengubah data polling, mengubah status polling (memulai dan mengakhiri), dan menghapus data polling
+- Manajemen data nomor telpon: Memasukkan data nomor telepon, mengubah dan menghapus data
+- Manajemen data role pengguna: Membuat, mengubah dan menghapus data role
 
-## About Laravel
+# Backend (API) RT Pintar
+Pembuatan API dengan laravel menggunakan JWT Auth sebagai sistem autentikasinya, API ini digunakan oleh aplikasi mobile RT Pintar. Dokumentasi API dari aplikasi ini dapat dilihat melalui link berikut [Click Here!](https://documenter.getpostman.com/view/24336143/2sA2rGvzab)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
